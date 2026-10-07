@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Patient dashboard showing Jessica Taylor's diagnosis history and vital signs.">
+
+    <title>Patient Dashboard | Tech.Care</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="top-header">
+
+        <div class="logo" aria-label="Tech.Care">
+            <span aria-hidden="true">✦</span>
+            <span class="logo-name">Tech.Care</span>
+        </div>
+
+        <nav class="navigation" aria-label="Main navigation">
+
+            <span>
+                <span aria-hidden="true">⌂</span>
+                Overview
+            </span>
+
+            <span class="active" aria-current="page">
+                <span aria-hidden="true">👥</span>
+                Patients
+            </span>
+
+            <span>
+                <span aria-hidden="true">▣</span>
+                Schedule
+            </span>
+
+            <span>
+                <span aria-hidden="true">▢</span>
+                Message
+            </span>
+
+            <span>
+                <span aria-hidden="true">▤</span>
+                Transactions
+            </span>
+
+        </nav>
+
+        <div class="doctor">
+
+            <div class="doctor-info">
+                <strong>Dr. Jose Simmons</strong>
+                <span>General Practitioner</span>
+            </div>
+
+            <span class="settings" aria-hidden="true">⚙</span>
+
+            <span class="doctor-menu" aria-hidden="true">⋮</span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN DASHBOARD
+    ========================== -->
+
+    <main class="dashboard" aria-busy="true">
+
+
+        <!-- =========================
+             PATIENTS
+        ========================== -->
+
+        <aside class="patients-panel" aria-labelledby="patients-heading">
+
+            <div class="patients-header">
+
+                <h2 id="patients-heading">
+                    Patients
+                </h2>
+
+                <span class="search-icon" aria-hidden="true">
+                    ⌕
+                </span>
+
+            </div>
+
+
+            <div class="patient-list" aria-label="Patient list">
+
+
+                <div class="patient">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        EW
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Emily Williams
+                        </strong>
+
+                        <span>
+                            Female, 18
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <div class="patient">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        RJ
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Ryan Johnson
+                        </strong>
+
+                        <span>
+                            Male, 45
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <div class="patient">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        BM
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Brandon Mitchell
+                        </strong>
+
+                        <span>
+                            Male, 36
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <div class="patient selected" aria-current="true">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        JT
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Jessica Taylor
+                        </strong>
+
+                        <span>
+                            Female, 28
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <div class="patient">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        SJ
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Samantha Johnson
+                        </strong>
+
+                        <span>
+                            Female, 56
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <div class="patient">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        AM
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Ashley Martinez
+                        </strong>
+
+                        <span>
+                            Female, 54
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+
+                <div class="patient">
+
+                    <div class="patient-avatar" aria-hidden="true">
+                        OB
+                    </div>
+
+                    <div class="patient-info">
+
+                        <strong>
+                            Olivia Brown
+                        </strong>
+
+                        <span>
+                            Female, 32
+                        </span>
+
+                    </div>
+
+                    <span class="more" aria-hidden="true">
+                        •••
+                    </span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             DIAGNOSIS HISTORY
+        ========================== -->
+
+        <section class="main-content" aria-labelledby="history-heading">
+
+            <h1 id="history-heading">
+                Diagnosis History
+            </h1>
+
+
+            <!-- BLOOD PRESSURE -->
+
+            <section class="blood-pressure-card"
+                     aria-labelledby="blood-pressure-heading">
+
+                <div class="bp-header">
+
+                    <h2 id="blood-pressure-heading">
+                        Blood Pressure
+                    </h2>
+
+                    <div class="bp-period">
+                        Last 6 months
+                        <span aria-hidden="true">⌄</span>
+                    </div>
+
+                </div>
+
+
+                <div class="bp-content">
+
+
+                    <div class="chart-area">
+
+                        <canvas
+                            id="bloodPressureChart"
+                            role="img"
+                            aria-label="Jessica Taylor's blood pressure over the last six months">
+                        </canvas>
+
+                        <p
+                            id="chart-description"
+                            class="visually-hidden">
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="bp-values"
+                        aria-label="Latest blood pressure readings">
+
+
+                        <div class="bp-value systolic">
+
+                            <span>
+                                ● Systolic
+                            </span>
+
+                            <strong id="systolic-value">
+                                —
+                            </strong>
+
+                            <small id="systolic-level">
+                                —
+                            </small>
+
+                        </div>
+
+
+                        <div class="bp-value diastolic">
+
+                            <span>
+                                ● Diastolic
+                            </span>
+
+                            <strong id="diastolic-value">
+                                —
+                            </strong>
+
+                            <small id="diastolic-level">
+                                —
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- VITAL CARDS -->
+
+            <section
+                class="vital-cards"
+                aria-label="Latest vital signs">
+
+
+                <article class="vital-card respiratory">
+
+                    <div
+                        class="vital-icon"
+                        aria-hidden="true">
+                        🫁
+                    </div>
+
+                    <span>
+                        Respiratory Rate
+                    </span>
+
+                    <strong id="respiratory-rate">
+                        —
+                    </strong>
+
+                    <small id="respiratory-status">
+                        —
+                    </small>
+
+                </article>
+
+
+                <article class="vital-card temperature">
+
+                    <div
+                        class="vital-icon"
+                        aria-hidden="true">
+                        🌡
+                    </div>
+
+                    <span>
+                        Temperature
+                    </span>
+
+                    <strong id="temperature">
+                        —
+                    </strong>
+
+                    <small id="temperature-status">
+                        —
+                    </small>
+
+                </article>
+
+
+                <article class="vital-card heart">
+
+                    <div
+                        class="vital-icon"
+                        aria-hidden="true">
+                        ❤️
+                    </div>
+
+                    <span>
+                        Heart Rate
+                    </span>
+
+                    <strong id="heart-rate">
+                        —
+                    </strong>
+
+                    <small id="heart-status">
+                        —
+                    </small>
+
+                </article>
+
+
+            </section>
+
+        </section>
+
+
+        <!-- =========================
+             JESSICA PROFILE
+        ========================== -->
+
+        <aside
+            class="patient-profile"
+            aria-labelledby="patient-name">
+
+
+            <div class="profile-image">
+
+                <img
+                    id="patient-image"
+                    src=""
+                    alt=""
+                    referrerpolicy="no-referrer">
+
+            </div>
+
+
+            <h2 id="patient-name">
+                Jessica Taylor
+            </h2>
+
+
+            <div class="profile-details">
+
+
+                <!-- DATE OF BIRTH -->
+
+                <div class="detail">
+
+                    <div
+                        class="detail-icon"
+                        aria-hidden="true">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Date Of Birth
+                        </span>
+
+                        <strong id="date-of-birth">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GENDER -->
+
+                <div class="detail">
+
+                    <div
+                        class="detail-icon"
+                        aria-hidden="true">
+                        ♀
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Gender
+                        </span>
+
+                        <strong id="gender">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT -->
+
+                <div class="detail">
+
+                    <div
+                        class="detail-icon"
+                        aria-hidden="true">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Contact Info.
+                        </span>
+
+                        <strong id="phone">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMERGENCY CONTACT -->
+
+                <div class="detail">
+
+                    <div
+                        class="detail-icon"
+                        aria-hidden="true">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Emergency Contacts
+                        </span>
+
+                        <strong id="emergency-contact">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INSURANCE -->
+
+                <div class="detail">
+
+                    <div
+                        class="detail-icon"
+                        aria-hidden="true">
+                        ♡
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Insurance Provider
+                        </span>
+
+                        <strong id="insurance">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- SHOW ALL INFORMATION -->
+
+            <div class="show-info">
+                Show All Information
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+    <!-- API STATUS -->
+
+    <p
+        id="api-status"
+        class="api-status"
+        role="status"
+        aria-live="polite"
+        hidden>
+    </p>
+
+
+</body>
+</html>

@@ -1,0 +1,1071 @@
+/* =========================================================
+   TECH.CARE PATIENT DASHBOARD
+   ========================================================= */
+
+:root {
+    color-scheme: light;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #072635;
+    background: #f6f7f8;
+
+    --text: #072635;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --turquoise: #15d5c5;
+    --selected: #d9f8f4;
+
+    --purple-bg: #f0edff;
+    --purple: #8069d9;
+    --pink: #e66ac5;
+
+    --blue-card: #dff6fc;
+    --pink-card: #ffe3e9;
+    --heart-card: #ffe1ee;
+
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    background: #f6f7f8;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.top-header {
+    display: flex;
+    align-items: center;
+
+    height: 70px;
+
+    margin: 20px 22px 20px;
+    padding: 0 30px;
+
+    background: var(--white);
+    border-radius: 40px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    min-width: 245px;
+
+    white-space: nowrap;
+}
+
+.logo > span:first-child {
+    color: var(--turquoise);
+    font-size: 30px;
+    line-height: 1;
+}
+
+.logo-name {
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    flex: 1;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.navigation > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 44px;
+    padding: 0 17px;
+
+    border-radius: 25px;
+
+    color: #163344;
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.navigation > span > span {
+    font-size: 12px;
+}
+
+.navigation > .active {
+    background: var(--turquoise);
+    color: #07383a;
+}
+
+
+/* DOCTOR */
+
+.doctor {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 13px;
+
+    min-width: 245px;
+}
+
+.doctor-info {
+    display: flex;
+    flex-direction: column;
+
+    white-space: nowrap;
+}
+
+.doctor-info strong {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.doctor-info span {
+    margin-top: 3px;
+
+    color: #777;
+    font-size: 12px;
+}
+
+.settings,
+.doctor-menu {
+    color: #072635;
+    font-size: 19px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+   ========================================================= */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns:
+        minmax(270px, 0.85fr)
+        minmax(600px, 2.7fr)
+        minmax(285px, 0.95fr);
+
+    gap: 20px;
+
+    margin: 0 22px 22px;
+
+    align-items: stretch;
+}
+
+
+/* COMMON PANELS */
+
+.patients-panel,
+.main-content,
+.patient-profile {
+    background: var(--white);
+    border-radius: 15px;
+}
+
+
+/* =========================================================
+   PATIENTS PANEL
+   ========================================================= */
+
+.patients-panel {
+    min-height: 620px;
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+.patients-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.patients-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.search-icon {
+    color: #072635;
+    font-size: 25px;
+    line-height: 1;
+}
+
+
+/* PATIENT LIST */
+
+.patient-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.patient {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 66px;
+
+    padding: 9px 8px;
+
+    border-radius: 6px;
+}
+
+.patient.selected {
+    background: var(--selected);
+}
+
+
+/* AVATAR */
+
+.patient-avatar {
+    display: flex;
+    flex: 0 0 44px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: #e8e8e8;
+
+    color: #072635;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* PATIENT TEXT */
+
+.patient-info {
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.patient-info strong {
+    color: #072635;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.patient-info span {
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+.more {
+    color: #072635;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   CENTER / DIAGNOSIS HISTORY
+   ========================================================= */
+
+.main-content {
+    min-width: 0;
+    min-height: 620px;
+
+    padding: 20px 21px;
+}
+
+.main-content h1 {
+    margin: 0 0 20px;
+
+    color: var(--text);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BLOOD PRESSURE
+   ========================================================= */
+
+.blood-pressure-card {
+    padding: 15px 16px;
+
+    border-radius: 11px;
+
+    background: var(--purple-bg);
+}
+
+.bp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bp-header h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.bp-period {
+    color: #555;
+
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.bp-period span {
+    margin-left: 7px;
+}
+
+
+/* CHART + VALUES */
+
+.bp-content {
+    display: flex;
+
+    gap: 18px;
+
+    margin-top: 10px;
+}
+
+.chart-area {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+    height: 175px;
+}
+
+.chart-area canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* BLOOD PRESSURE VALUES */
+
+.bp-values {
+    flex: 0 0 128px;
+
+    width: 128px;
+}
+
+.bp-value {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 11px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #d8d3e5;
+}
+
+.bp-value:last-child {
+    margin-bottom: 0;
+}
+
+.bp-value span {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.bp-value strong {
+    margin: 7px 0 5px;
+
+    color: var(--text);
+
+    font-size: 22px;
+    line-height: 1;
+}
+
+.bp-value small {
+    min-height: 11px;
+
+    color: #072635;
+
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.systolic span {
+    color: var(--pink);
+}
+
+.diastolic span {
+    color: var(--purple);
+}
+
+
+/* =========================================================
+   VITAL CARDS
+   ========================================================= */
+
+.vital-cards {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-top: 15px;
+}
+
+.vital-card {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 174px;
+
+    padding: 17px;
+
+    border-radius: 10px;
+}
+
+.vital-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    margin-bottom: 12px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    font-size: 27px;
+}
+
+.vital-card > span {
+    color: #072635;
+
+    font-size: 11px;
+}
+
+.vital-card strong {
+    margin: 5px 0 8px;
+
+    color: #072635;
+
+    font-size: 20px;
+    line-height: 1;
+}
+
+.vital-card small {
+    min-height: 12px;
+
+    color: #072635;
+
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+
+/* CARD COLORS */
+
+.respiratory {
+    background: var(--blue-card);
+}
+
+.temperature {
+    background: var(--pink-card);
+}
+
+.heart {
+    background: var(--heart-card);
+}
+
+
+/* =========================================================
+   RIGHT PROFILE
+   ========================================================= */
+
+.patient-profile {
+    min-height: 620px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+}
+
+
+/* PROFILE IMAGE */
+
+.profile-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 15px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: #e7e7e7;
+}
+
+.profile-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* NAME */
+
+.patient-profile h2 {
+    margin: 0 0 29px;
+
+    color: var(--text);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* PROFILE DETAILS */
+
+.profile-details {
+    text-align: left;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 19px;
+}
+
+.detail-icon {
+    display: flex;
+    flex: 0 0 36px;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #f3f5f5;
+
+    font-size: 15px;
+}
+
+.detail > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.detail span {
+    margin-bottom: 4px;
+
+    color: #555;
+
+    font-size: 11px;
+}
+
+.detail strong {
+    color: #163344;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* SHOW INFORMATION */
+
+.show-info {
+    display: block;
+
+    width: 180px;
+
+    margin: 7px auto 0;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    background: var(--turquoise);
+
+    color: #063b3b;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   API ERROR MESSAGE
+   ========================================================= */
+
+.api-status {
+    position: fixed;
+
+    z-index: 100;
+
+    right: 20px;
+    bottom: 20px;
+
+    max-width: min(440px, calc(100vw - 40px));
+
+    margin: 0;
+    padding: 12px 16px;
+
+    border-radius: 8px;
+
+    background: #7d2020;
+
+    box-shadow: 0 4px 18px rgb(0 0 0 / 18%);
+
+    color: #fff;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .top-header {
+        height: 75px;
+
+        margin: 20px 22px;
+
+        padding: 0 32px;
+    }
+
+    .dashboard {
+        grid-template-columns:
+            300px
+            minmax(650px, 1fr)
+            320px;
+
+        gap: 20px;
+    }
+
+    .patients-panel,
+    .main-content,
+    .patient-profile {
+        min-height: 620px;
+    }
+
+    .patients-panel {
+        padding: 20px 21px;
+    }
+
+    .main-content {
+        padding: 21px 22px;
+    }
+
+    .patient-profile {
+        padding: 26px 21px;
+    }
+
+    .chart-area {
+        height: 175px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1250px) {
+
+    .top-header {
+        padding: 0 20px;
+    }
+
+    .logo {
+        min-width: 190px;
+    }
+
+    .doctor {
+        min-width: 190px;
+    }
+
+    .navigation {
+        gap: 3px;
+    }
+
+    .navigation > span {
+        padding: 0 10px;
+    }
+
+    .dashboard {
+        grid-template-columns:
+            240px
+            minmax(450px, 1fr)
+            270px;
+
+        gap: 15px;
+    }
+
+    .bp-content {
+        gap: 12px;
+    }
+
+    .bp-values {
+        flex-basis: 110px;
+        width: 110px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .top-header {
+        height: 65px;
+    }
+
+    .logo {
+        min-width: 160px;
+    }
+
+    .logo-name {
+        font-size: 19px;
+    }
+
+    .navigation > span {
+        padding: 0 7px;
+
+        font-size: 11px;
+    }
+
+    .doctor {
+        min-width: 170px;
+    }
+
+    .doctor-info strong,
+    .doctor-info span {
+        font-size: 10px;
+    }
+
+    .dashboard {
+        grid-template-columns: 230px 1fr;
+    }
+
+    .patient-profile {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================================================
+   MOBILE / ONE COLUMN
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .top-header {
+        margin: 10px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .doctor {
+        margin-left: auto;
+    }
+
+    .dashboard {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin: 0 10px 10px;
+    }
+
+    .patients-panel,
+    .main-content,
+    .patient-profile {
+        min-height: auto;
+    }
+
+    .patients-panel {
+        max-height: none;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .patient-profile {
+        padding: 25px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .top-header {
+        height: 60px;
+
+        margin: 8px;
+
+        padding: 0 15px;
+
+        border-radius: 30px;
+    }
+
+    .logo {
+        min-width: auto;
+    }
+
+    .logo > span:first-child {
+        font-size: 25px;
+    }
+
+    .logo-name {
+        font-size: 18px;
+    }
+
+    .doctor {
+        min-width: auto;
+        gap: 8px;
+    }
+
+    .doctor-info {
+        display: none;
+    }
+
+    .settings,
+    .doctor-menu {
+        font-size: 17px;
+    }
+
+
+    /* PATIENTS */
+
+    .patients-panel {
+        padding: 17px;
+    }
+
+    .patient {
+        min-height: 62px;
+    }
+
+
+    /* BLOOD PRESSURE */
+
+    .main-content {
+        padding: 17px;
+    }
+
+    .main-content h1 {
+        font-size: 19px;
+    }
+
+    .bp-content {
+        flex-direction: column;
+    }
+
+    .chart-area {
+        height: 220px;
+    }
+
+    .bp-values {
+        display: grid;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+        width: 100%;
+    }
+
+    .bp-value {
+        margin-bottom: 0;
+    }
+
+
+    /* VITALS */
+
+    .vital-cards {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .vital-card {
+        min-height: 155px;
+    }
+
+
+    /* PROFILE */
+
+    .patient-profile {
+        padding: 25px 20px;
+    }
+}
+
+/* =========================
+   FINAL XD POLISH
+========================= */
+
+.blood-pressure-card {
+    background: #f1edff;
+}
+
+.chart-area {
+    height: 175px;
+}
+
+.bp-values {
+    padding-top: 0;
+}
+
+.bp-value strong {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.bp-value small {
+    font-size: 9px;
+}
+
+.vital-card {
+    min-height: 175px;
+}
+
+.vital-card strong {
+    font-size: 20px;
+}
+
+.show-info {
+    border: none;
+    cursor: default;
+}
+
+/* Keep dashboard aligned like the XD design */
+.dashboard {
+    align-items: stretch;
+}
+
+.patients-panel,
+.main-content,
+.patient-profile {
+    overflow: hidden;
+}
+
+/* Better chart spacing */
+#bloodPressureChart {
+    width: 100% !important;
+    height: 100% !important;
+}
